@@ -19,5 +19,5 @@ To install the `set-bg` suite of scripts:
 ### Credits
 
   * [Robby Russell](https://github.com/robbyrussell/) for the idea to create an `install.sh` script that one can wget from the repository.
-  * Unknown author that created the base script for setting a background image in iTerm2 that my script is based upon.
+  * Unknown author that created the base script for setting a background image in iTerm2 that this script is based upon.
   * [David Aaron Fendley](https://github.com/tricon)
