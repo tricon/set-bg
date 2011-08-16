@@ -1,0 +1,44 @@
+#!/bin/zsh
+
+function __calculate_iterm_window_dimensions {
+  applescript="tell application \"iTerm\"
+    get bounds of window 1
+  end tell"
+  size=($(osascript -e $applescript | tr ',' ' '))
+
+  x1=${size[1]} y1=${size[2]} x2=${size[3]} y2=${size[4]}
+  # 15px - scrollbar width
+  w=$(( $x2 - $x1 ))
+  # 44px - titlebar + tabs height
+  h=$(( $y2 - $y1 - 44))
+  echo "${w}x${h}"
+}
+
+# Console dimensions
+DIMENSIONS=$(__calculate_iterm_window_dimensions)
+a=(${(s/x/)DIMENSIONS})
+WIDTH=$(($a[1]-32))
+HEIGHT=$(($a[2]-32))
+
+BG_COLOR="#121212"       # Background color
+FG_COLOR="#454545"       # Foreground color
+GRAVITY="SouthEast"      # Text gravity (NorthWest, North, NorthEast,
+FONT_SIZE="20"           # Font size in points
+FONT="Helvetica-Light"
+
+OFFSET_X=35
+OFFSET_Y=04
+
+HOSTNAME=$(/usr/bin/base-hostname "$@")
+DESTFILE="/tmp/iTermBG.$HOSTNAME.png"
+
+# if [ ! -f /tmp/iTermBG.${HOSTNAME}.png ]; then
+  convert -crop ${DIMENSIONS}-$WIDTH-$HEIGHT\! ~/Pictures/GeekTool/Apple.png \
+          -background "$BG_COLOR" -flatten -quality 100 -gravity "$GRAVITY" -font "$FONT" -pointsize "$FONT_SIZE" -antialias -alpha Off \
+          -fill black -annotate +$(($OFFSET_X+1))+$(($OFFSET_Y+1)) "$HOSTNAME" \
+          -fill "#323232" -annotate +$(($OFFSET_X-1))+$(($OFFSET_Y-1)) "$HOSTNAME" \
+          -fill "#252525" -annotate +$OFFSET_X+$OFFSET_Y "$HOSTNAME" \
+          $DESTFILE
+# fi
+
+/usr/bin/set-bg $DESTFILE

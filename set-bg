@@ -1,0 +1,17 @@
+#!/bin/sh
+
+current_tty=$(tty)
+osascript -e "
+  tell application \"iTerm\"
+    repeat with theTerminal in terminals
+      tell theTerminal
+        try
+          tell session id \"$current_tty\"
+            set background image path to \"$1\"
+          end tell
+        on error errmesg number errn
+        end try
+      end tell
+    end repeat
+  end tell
+"

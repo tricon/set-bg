@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# SSH with host name and IP address in background (only in iTerm.app)
+
+# First, check to see if we have the correct terminal!
+if [ "$(tty)" = 'not a tty' ] || [ "$TERM_PROGRAM" != "iTerm.app" ] ; then
+  /usr/bin/ssh "$@"
+  exit $?
+fi
+
+HOSTNAME=$(/usr/bin/base-hostname `hostname`)
+
+on_exit () {
+  # if [ ! -f /tmp/iTermBG.empty.png ]; then
+  #   convert -size "$DIMENSIONS" xc:"$BG_COLOR" "/tmp/iTermBG.empty.png"
+  # fi
+  /usr/bin/set-bg "/tmp/iTermBG.$HOSTNAME.png"
+}
+
+trap on_exit EXIT
+
+/usr/bin/set-bg-host "$@"
+
+# read $tmp
+/usr/bin/ssh "$@"
