@@ -4,7 +4,7 @@
 
 <img src="http://f.cl.ly/items/3A033X003h1K2g11461b/Screen%20Shot%202011-08-16%20at%2012.25.52%20PM.png"/><br/>
 <img src="http://f.cl.ly/items/451w2A3b2r2m2P1B0122/Screen%20Shot%202011-08-16%20at%2012.25.59%20PM.png"/><br/>
-<img src="http://f.cl.ly/items/1Z1W1H062x0S0m0Y0y2C/Screen-Shot-2011-08-16-at-12.26.03-PM.png"/><br/>
+<img src="http://f.cl.ly/items/3X1e1927402e3O2u1m0e/Screen-Shot-2011-08-16-at-12.26.03-PM.png"/><br/>
 
 ### Install
 
