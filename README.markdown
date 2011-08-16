@@ -19,6 +19,9 @@ To install the `set-bg` suite of scripts:
 
     wget --no-check-certificate https://github.com/tricon/set-bg/raw/master/install.sh -O - | sh
 
+### Purple Apple Shell Theme
+
+The purple Apple shell theme featured in the screenshot [can be found here](https://github.com/Tricon/oh-my-zsh/blob/master/themes/apple.zsh-theme).
 
 ### Credits
 
