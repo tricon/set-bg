@@ -2,7 +2,7 @@
 
 `set-bg` generates a custom background image for iTerm2, setting it as the background. By default, it creates a letterpressed hostname alongside the Apple logo in the bottom right. It also creates an alias from `ssh` to `sshb` so that the hostname will change as you `ssh` to various servers.
 
-<img src="http://f.cl.ly/items/2s3j3Y2g2c2r0V2q2H12/Screen%20Shot%202011-08-16%20at%2011.28.41%20AM.png"/>
+<img src="http://f.cl.ly/items/1v3S3U3I2Y083R3Y2r0X/Screen%20Shot%202011-08-16%20at%2012.20.39%20PM.png"/>
 
 ### Install
 
