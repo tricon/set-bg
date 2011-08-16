@@ -33,7 +33,7 @@ HOSTNAME=$(/usr/bin/base-hostname "$@")
 DESTFILE="/tmp/iTermBG.$HOSTNAME.png"
 
 # if [ ! -f /tmp/iTermBG.${HOSTNAME}.png ]; then
-  convert -crop ${DIMENSIONS}-$WIDTH-$HEIGHT\! ~/Pictures/GeekTool/Apple.png \
+  convert -crop ${DIMENSIONS}-$WIDTH-$HEIGHT\! /usr/bin/Apple.png \
           -background "$BG_COLOR" -flatten -quality 100 -gravity "$GRAVITY" -font "$FONT" -pointsize "$FONT_SIZE" -antialias -alpha Off \
           -fill black -annotate +$(($OFFSET_X+1))+$(($OFFSET_Y+1)) "$HOSTNAME" \
           -fill "#323232" -annotate +$(($OFFSET_X-1))+$(($OFFSET_Y-1)) "$HOSTNAME" \
