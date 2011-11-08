@@ -22,7 +22,7 @@ HEIGHT=$(($a[2]-32))
 
 HOSTNAME=$(/usr/bin/base-hostname "$@")
 DESTFILE="/tmp/iTermBG.$HOSTNAME.png"
-LOCALHOST=`uname -n | cut -d '.' -f1`
+LOCALHOST=`uname -n | cut -d '.' -f1 | tr '[A-Z]' '[a-z]'`
 
 # Check whether we are on localhost
 if [[ "$HOSTNAME" == "$LOCALHOST" ]]
