@@ -20,8 +20,21 @@ a=(${(s/x/)DIMENSIONS})
 WIDTH=$(($a[1]-32))
 HEIGHT=$(($a[2]-32))
 
-BG_COLOR="#121212"       # Background color
-FG_COLOR="#454545"       # Foreground color
+HOSTNAME=$(/usr/bin/base-hostname "$@")
+DESTFILE="/tmp/iTermBG.$HOSTNAME.png"
+LOCALHOST=`uname -n | cut -d '.' -f1 | tr '[A-Z]' '[a-z]'`
+
+# Check whether we are on localhost
+if [[ "$HOSTNAME" == "$LOCALHOST" ]]
+then
+  # Colors for local
+  BG_COLOR="#121212"       # Background color
+  FG_COLOR="#454545"       # Foreground color
+else
+  # Colors for remote
+  BG_COLOR="#341212"       # Background color
+  FG_COLOR="#454545"       # Foreground color
+fi
 GRAVITY="SouthEast"      # Text gravity (NorthWest, North, NorthEast,
 FONT_SIZE="20"           # Font size in points
 FONT="Helvetica-Light"
@@ -29,8 +42,6 @@ FONT="Helvetica-Light"
 OFFSET_X=35
 OFFSET_Y=04
 
-HOSTNAME=$(/usr/bin/base-hostname "$@")
-DESTFILE="/tmp/iTermBG.$HOSTNAME.png"
 
 # if [ ! -f /tmp/iTermBG.${HOSTNAME}.png ]; then
   convert -crop ${DIMENSIONS}-$WIDTH-$HEIGHT\! /usr/bin/Apple.png \
